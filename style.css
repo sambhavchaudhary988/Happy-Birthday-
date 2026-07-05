@@ -1,0 +1,591 @@
+/* ==========================================
+   PREMIUM BIRTHDAY CARD
+   CSS PART 1
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    min-height:100dvh; /* correct height on mobile browsers with dynamic toolbars */
+    overflow-y:auto; /* fallback: lets you scroll to see everything if a
+                         browser's chrome eats into the visible area */
+    overflow-x:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:
+    max(24px, env(safe-area-inset-top))
+    12px
+    max(24px, env(safe-area-inset-bottom));
+    background:
+    linear-gradient(
+    135deg,
+    #FFFDF8,
+    #FFF4EA,
+    #FFEADF);
+    position:relative;
+    touch-action:manipulation; /* removes 300ms tap delay / double-tap zoom on mobile */
+}
+
+#background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-2;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.45;
+}
+
+.blob1{
+    width:350px;
+    height:350px;
+    background:#FFD7DD;
+    top:-120px;
+    left:-120px;
+    animation:blobDrift1 14s ease-in-out infinite;
+}
+
+.blob2{
+    width:320px;
+    height:320px;
+    background:#FFF2B7;
+    bottom:-100px;
+    right:-100px;
+    animation:blobDrift2 17s ease-in-out infinite;
+}
+
+.blob3{
+    width:220px;
+    height:220px;
+    background:#FFE4F3;
+    top:55%;
+    left:42%;
+    animation:blobDrift3 20s ease-in-out infinite;
+}
+
+@keyframes blobDrift1{
+    0%,100%{ transform:translate(0,0); }
+    50%{ transform:translate(40px,30px); }
+}
+@keyframes blobDrift2{
+    0%,100%{ transform:translate(0,0); }
+    50%{ transform:translate(-35px,-25px); }
+}
+@keyframes blobDrift3{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(20px,-20px) scale(1.1); }
+}
+
+.card{
+    width:92%;
+    max-width:520px;
+    padding:38px 30px;
+    text-align:center;
+    border-radius:38px;
+    background:
+    rgba(255,255,255,.60);
+    backdrop-filter:blur(18px);
+    border:
+    1px solid rgba(255,255,255,.7);
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.08);
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 26px;
+    border-radius:50px;
+    background:white;
+    letter-spacing:3px;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:20px;
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+.title{
+    font-family:'Playfair Display',serif;
+    font-size:58px;
+    line-height:1.08;
+    color:#3B2A24;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    font-family:'Caveat',cursive;
+    font-size:60px;
+    color:#FF4F8B;
+    margin-bottom:15px;
+}
+
+.gift{
+    width:240px;
+    margin:auto;
+}
+
+.message{
+    margin-top:10px;
+    color:#777;
+    font-size:15px;
+    line-height:1.6;
+}
+
+.arrow{
+    margin:10px 0;
+    font-size:36px;
+}
+
+#openGift{
+    border:none;
+    padding:16px 48px;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:600;
+    background:
+    linear-gradient(
+    135deg,
+    #FFF9F1,
+    #FFE3BD);
+    color:#6B3F21;
+}
+
+#giftPopup,
+#slideshow,
+#birthdayCard,
+#finalScreen{
+    display:none;
+}
+/* ==========================================
+   PREMIUM BIRTHDAY CARD
+   CSS PART 2
+========================================== */
+
+.card{
+    animation:cardAppear 1.2s ease;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.12);
+}
+
+@keyframes cardAppear{
+    from{
+        opacity:0;
+        transform:
+        translateY(40px)
+        scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:
+        translateY(0)
+        scale(1);
+    }
+}
+
+.gift{
+    animation:giftFloat 3s ease-in-out infinite;
+}
+
+@keyframes giftFloat{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-12px); }
+}
+
+.arrow{
+    animation:arrowBounce 1.5s infinite;
+}
+
+@keyframes arrowBounce{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(10px); }
+}
+
+#openGift{
+    transition:.35s;
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.10);
+}
+
+#openGift:hover{
+    transform:
+    translateY(-4px)
+    scale(1.05);
+    box-shadow:
+    0 18px 40px rgba(0,0,0,.15);
+}
+
+#openGift:active{
+    transform:scale(.95);
+}
+
+#openGift{
+    position:relative;
+    overflow:hidden;
+}
+
+#openGift::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:60%;
+    height:100%;
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.8),
+    transparent);
+    transition:.8s;
+}
+
+#openGift:hover::before{
+    left:140%;
+}
+
+#giftPopup{
+    position:fixed;
+    inset:0;
+    background:
+    rgba(0,0,0,.35);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:100;
+}
+
+.popup{
+    position:relative; /* fix: without this, the No button's escape animation
+                           was positioned relative to the full-screen overlay
+                           instead of the card, so it could jump off to a
+                           screen corner instead of dodging within the card */
+    width:90%;
+    max-width:420px;
+    min-height:260px;
+    background:white;
+    padding:35px;
+    border-radius:28px;
+    text-align:center;
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.18);
+}
+
+.popup h2{
+    font-family:'Playfair Display',serif;
+    color:#ff4f8b;
+    margin-bottom:15px;
+}
+
+.popup p{
+    color:#666;
+    line-height:1.8;
+}
+
+.popupButtons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+.popupButtons button{
+    border:none;
+    cursor:pointer;
+    padding:14px 30px;
+    border-radius:50px;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+    touch-action:manipulation;
+}
+
+#yesBtn{
+    background:#ff4f8b;
+    color:white;
+}
+
+#yesBtn:hover{
+    transform:scale(1.08);
+}
+
+#noBtn{
+    background:#ececec;
+    color:#444;
+    position:relative;
+}
+
+#funnyMessage{
+    margin-top:20px;
+    color:#ff4f8b;
+    font-weight:600;
+    min-height:28px;
+}
+/* ==========================================
+   PREMIUM BIRTHDAY CARD
+   CSS PART 3
+========================================== */
+
+.heart{
+    position:absolute;
+    bottom:-60px;
+    pointer-events:none;
+    animation:heartFloat linear forwards;
+    z-index:1;
+}
+
+@keyframes heartFloat{
+    0%{
+        transform:
+        translateY(0)
+        scale(.5)
+        rotate(0deg);
+        opacity:0;
+    }
+    15%{ opacity:1; }
+    100%{
+        transform:
+        translateY(-120vh)
+        scale(1.4)
+        rotate(360deg);
+        opacity:0;
+    }
+}
+
+.sparkle{
+    position:absolute;
+    color:#ffffff;
+    text-shadow:
+    0 0 10px white,
+    0 0 20px white;
+    animation:sparkle 2s infinite;
+}
+
+@keyframes sparkle{
+    0%,100%{
+        opacity:.3;
+        transform:
+        scale(.7);
+    }
+    50%{
+        opacity:1;
+        transform:
+        scale(1.6);
+    }
+}
+
+#slideshow{
+    position:fixed;
+    inset:0;
+    background:
+    rgba(255,248,242,.97);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:200;
+}
+
+#slideImage{
+    width:320px;
+    max-width:85%;
+    border-radius:25px;
+    object-fit:cover;
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.18);
+}
+
+#photoTitle{
+    margin-top:25px;
+    font-family:'Playfair Display',serif;
+    font-size:32px;
+    color:#ff4f8b;
+}
+
+#caption{
+    margin-top:12px;
+    color:#666;
+    font-size:17px;
+    text-align:center;
+    width:85%;
+    max-width:500px;
+    line-height:1.8;
+}
+
+#birthdayCard{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:flex-start; /* fix: was center, which hid overflowing
+                                    text with no way to scroll to it */
+    align-items:center;
+    flex-direction:column;
+    background:
+    rgba(255,250,246,.98);
+    padding:60px 20px 80px;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    z-index:300;
+}
+
+#birthdayCard h1{
+    font-family:'Playfair Display',serif;
+    color:#ff4f8b;
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+#typingText{
+    max-width:700px;
+    line-height:2;
+    font-size:19px;
+    color:#555;
+    text-align:center;
+    white-space:pre-wrap;
+}
+
+#continueBtn{
+    margin:30px 0 20px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    padding:16px 48px;
+    background:
+    linear-gradient(
+    135deg,
+    #ffb4c9,
+    #ffd8a5);
+    color:white;
+    font-size:18px;
+    font-weight:600;
+    touch-action:manipulation;
+}
+
+#balloons,
+#confetti,
+#fireworks{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.balloon{
+    position:absolute;
+    width:55px;
+    height:70px;
+    border-radius:50%;
+}
+
+.confetti{
+    position:absolute;
+    width:12px;
+    height:12px;
+}
+
+.firework{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+}
+
+#finalScreen{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:
+    linear-gradient(
+    180deg,
+    #fffaf6,
+    #ffeef3);
+    text-align:center;
+    padding:30px;
+    z-index:500;
+}
+
+#finalScreen h1{
+    font-family:'Playfair Display',serif;
+    color:#ff4f8b;
+    font-size:55px;
+}
+
+#finalScreen p{
+    margin:25px 0;
+    line-height:2;
+    font-size:19px;
+    color:#555;
+    max-width:650px;
+}
+
+#finalScreen h3{
+    color:#ff4f8b;
+    line-height:1.8;
+}
+
+#restart{
+    margin-top:35px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    padding:15px 45px;
+    font-size:18px;
+    background:#ff4f8b;
+    color:white;
+}
+
+#musicToggle{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    font-size:20px;
+    cursor:pointer;
+    z-index:1000;
+    display:none; /* shown by JS only once audio is confirmed available */
+    touch-action:manipulation;
+}
+
+@media(max-width:600px){
+.card{ padding:30px 20px; }
+.title{ font-size:42px; }
+.subtitle{ font-size:48px; }
+.gift{ width:220px; }
+#slideImage{ width:250px; }
+#photoTitle{ font-size:24px; }
+#birthdayCard h1{ font-size:32px; }
+#typingText{ font-size:16px; line-height:1.8; }
+#finalScreen h1{ font-size:40px; }
+#finalScreen p{ font-size:17px; }
+}
+
+@media(max-width:380px){
+.title{ font-size:34px; }
+.subtitle{ font-size:38px; }
+.badge{ font-size:11px; padding:10px 18px; }
+#openGift{ padding:14px 34px; font-size:16px; }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Happy Birthday My Cute Aunty ❤️</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+
+    <div id="background">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+    <div id="hearts"></div>
+    <div id="sparkles"></div>
+
+    <!-- Optional background music: put a file at music/birthday.mp3
+         (or change the path in CONFIG.music.src in the script below).
+         If no file is found, the toggle button stays hidden automatically. -->
+    <audio id="bgMusic" loop preload="none"></audio>
+    <button id="musicToggle" aria-label="Toggle music">🔈</button>
+
+    <!-- MAIN CARD -->
+
+    <section class="card">
+
+        <div class="badge">❤️ FOR MY CUTE AUNTY ❤️</div>
+
+        <h1 class="title">
+            a little
+            <br>
+            something
+            <br>
+            for you
+        </h1>
+
+        <h2 class="subtitle">Happy Birthday ✨</h2>
+
+        <div class="gift">
+            <div
+                class="tenor-gif-embed"
+                data-postid="13303502975996296042"
+                data-share-method="host"
+                data-aspect-ratio="1"
+                data-width="100%">
+            </div>
+        </div>
+
+        <script async src="https://tenor.com/embed.js"></script>
+
+        <p class="message">
+            I made a little surprise
+            especially for you ❤️
+        </p>
+
+        <div class="arrow">↓</div>
+
+        <button id="openGift">🎁 TAP TO OPEN</button>
+
+    </section>
+
+    <!-- ACCEPT GIFT POPUP -->
+
+    <section id="giftPopup">
+        <div class="popup">
+            <h2>🎁 A Little Gift</h2>
+            <p>
+                Would you accept
+                this little birthday gift
+                made especially
+                for you? 💖
+            </p>
+            <div class="popupButtons">
+                <button id="yesBtn">😊 YES</button>
+                <button id="noBtn">🙈 NO</button>
+            </div>
+            <p id="funnyMessage"></p>
+        </div>
+    </section>
+
+    <!-- PHOTO SLIDESHOW -->
+
+    <section id="slideshow">
+        <img id="slideImage" src="" alt="Birthday Photo">
+        <h3 id="photoTitle"></h3>
+        <p id="caption"></p>
+    </section>
+
+    <!-- BIRTHDAY LETTER -->
+
+    <section id="birthdayCard">
+        <h1>🎂 Happy Birthday ❤️</h1>
+        <p id="typingText"></p>
+        <button id="continueBtn">Continue ✨</button>
+    </section>
+
+    <!-- CELEBRATION -->
+
+    <div id="balloons"></div>
+    <div id="confetti"></div>
+    <div id="fireworks"></div>
+
+    <!-- FINAL SCREEN -->
+
+    <section id="finalScreen">
+        <h1>❤️ Happy Birthday ❤️</h1>
+        <p>
+            May your life always be
+            filled with happiness,
+            laughter,
+            peace,
+            good health
+            and endless love.
+        </p>
+        <h3>
+            Made with ❤️
+            <br>
+            by
+            <br>
+            Sambhav chaudhary
+        </h3>
+        <button id="restart">🔄 Watch Again</button>
+    </section>
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
